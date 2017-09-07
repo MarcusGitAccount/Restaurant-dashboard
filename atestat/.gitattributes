@@ -1,5 +1,3 @@
-atestat/public/bootstrap/* linguist-vendored=false
-atestat/public/font-awesome/* linguist-vendored=false
-atestat/public/jquery/* linguist-vendored=false
-
-*.css linguist-vendored
+public/bootstrap/* linguist-vendored=false
+public/font-awesome/* linguist-vendored=false
+public/jquery/* linguist-vendored=false
