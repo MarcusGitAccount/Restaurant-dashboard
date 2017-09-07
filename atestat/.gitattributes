@@ -1,3 +1,3 @@
-atestat/public/bootstrap/ *
-atestat/public/font-awesome/ *
-atestat/public/jquery/ *
+atestat/public/bootstrap/ * linguist-vendored
+atestat/public/font-awesome/ * linguist-vendored
+atestat/public/jquery/ * linguist-vendored
