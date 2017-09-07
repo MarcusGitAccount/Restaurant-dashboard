@@ -1,0 +1,35 @@
+{
+  "name": "proiect_atestat",
+  "version": "1.0.0",
+  "description": "Platforma web cu interfata pentru gestionarea unei afaceri folosind SQLite, NodeJS si Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo No current tests to be made.",
+    "start": "nodemon --harmony server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://MarcusBitBucketAccount@bitbucket.org/MarcusBitBucketAccount/atestat.git"
+  },
+  "keywords": [
+    "Administration",
+    "SQLite",
+    "NodeJS",
+    "atestat"
+  ],
+  "author": "Marcus Pop",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "client-sessions": "^0.7.0",
+    "csurf": "^1.9.0",
+    "ejs": "^2.5.6",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.15.2",
+    "express-ejs-layouts": "^2.3.0",
+    "multer": "^1.3.0",
+    "passport": "^0.3.2",
+    "sqlite3": "^3.1.9"
+  }
+}

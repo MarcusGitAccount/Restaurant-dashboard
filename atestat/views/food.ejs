@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= model.title %></title>
+</head>
+<body>
+  <% include partials/partial.ejs %>
+
+  <h1><%= model.header %></h1>
+  <ul>
+    <% model.list.forEach((item) => { %>
+      <li><%= item %></li>
+    <% }) %>
+  </ul>
+
+  <form action="/food" method="POST">
+    <input name="food_item" type="text" placeholder="Enter food name">
+    <input type="submit" value="Enter">
+  </form>
+  <br>
+  <form action="/food/login" method="POST">
+    <label for="login_user_name">Username:&nbsp</label>
+    <input name="login_user_name" type="text" placeholder="Enter username" required="true">
+    <label for="login_user_password">Password:&nbsp</label>
+    <input name="login_user_password" type="password" placeholder="Enter password" required="true">
+    <input type="submit" value="Login">
+  </form>
+  <br>
+  <form action="/food/register" method="POST">
+    <label for="register_user_name">Username:&nbsp</label>
+    <input name="register_user_name" type="text" placeholder="Enter username" required="true">
+    <label for="register_user_password_1">Password 1:&nbsp</label>
+    <input name="register_user_password_1" type="password" placeholder="Enter password" required="true">
+    <label for="register_user_password_2">Password 2:&nbsp</label>
+    <input name="register_user_password_2" type="password" placeholder="Enter password" required="true">
+    <input type="submit" value="Sign up">
+  </form>
+  
+</body>
+</html>

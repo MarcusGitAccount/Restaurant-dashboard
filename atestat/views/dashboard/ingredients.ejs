@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="About" content="Login/Sign up forms">
+  <meta name="viewport" content="width=device-width" initial-scale="1.0">
+  <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu" rel="stylesheet">
+  <title><%= model.title %></title>
+</head>
+<body>
+  <% include ../partials/navbar.ejs %>
+  <% include ../partials/confirm_modal.ejs %>
+
+  <div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="add-ingredient" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adding ingredient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="form-add-ingredient" enctype="multipart/form-data" name="ingredient">
+            <div class="form-group">
+              <label for="name" class="hide-label"><b>Ingredient name</b></label>
+              <input name="name" type="text" class="form-control" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+              <label for="quantity" class="hide-label"><b>Ingredient quantity in grams</b></label>
+              <input name="quantity" type="text" class="form-control" placeholder="Enter quantity" required>
+            </div>
+            <div class="form-group">
+              <label for="price" class="hide-label"><b>Ingredient price in lei</b></label>
+              <input name="price" type="text" class="form-control" placeholder="Enter price" required>
+            </div>
+            <div class="form-group">
+              <label for="image" class="hide-label">Choose image</label>
+              <input type="file" accept="image/*" name="image" class="" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismss</button>
+          <button type="button" class="btn btn-grey btn-add">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <% include ../partials/left_navigation.ejs %>
+      </div>
+      <div class="col-md-9">
+        <div class="">
+          <div style="margin-bottom: 5px;" class="logic-buttons">
+            <a data-toggle="modal" data-target="#add-modal" data-action="add" href = "#" class = "btn btn-grey col-md-3 col-sm-3 col-xs-12">Add ingredient &nbsp
+              <i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a data-sort="ASC" href = "#" class = "btn btn-grey btn-sort col-md-3 col-sm-3  col-xs-12">Sort ascending &nbsp
+              <i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+            <a data-sort="DESC" href = "#" class = "btn btn-grey btn-sort col-md-3 col-sm-3  col-xs-12">Sort descending &nbsp
+              <i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+          </div>
+          <div class="ingredients row">
+            <div class="col-sm-6 col-md-4 col-lg-4">
+              <div class="thumbnail">
+                <img class="img-responsive"src="https://placeholdit.imgix.net/~text?txtsize=23&txt=250%C3%97250&w=250&h=250" alt="ingredient">
+                <div class = "caption">
+                  <h4>Ingredient</h4>
+                  <ul class="list-group">
+                    <li class="list-group-item">Quantity <span class="badge grey">200g</span></li>
+                    <li class="list-group-item">Price <span class="badge grey">5 lei</span></li>
+                  </ul>
+                  <a style="width: 100%;" href = "#" class = "btn btn-grey" role = "button">Delete ingredient</a> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/public/js/functions.js"></script>
+  <script src="/public/js/ingredients.js"></script>
+</body>
+</html>

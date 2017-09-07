@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="Login page" content="Login/Sign up forms">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/public/css/login.css">
+    <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu" rel="stylesheet">
+    <title><%= model.title %></title>
+  </head>
+  <body>
+    <% function putName(user) { %>
+      <% if (typeof(user) === 'object') return user.name %>
+    <% } %>
+    <div class="container fill">
+      <div class="background"></div>
+      <div class="row">
+        <div class="col-md-12 header">
+          <h1>Welcome user !</h1>
+          <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>-->
+          <% if (typeof error === 'object' && error)  { %>
+            <div style="margin-top: 25px; font-size: 14px; padding: 1em 0 !; color: red;">
+              <%= error.title %>
+            </div>
+          <% } %>
+        </div>
+      </div>
+      <div class="row margin-top-row">
+        <div class="col-md-5 panel no-padding no-border panel-style col-sm-8">
+          <div class="panel-heading form-top-part">
+            <h1>Login form</h1>
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+          </div>
+          <div class="panel-body">
+            <form action="/home/login" method="post" id="user-login" class="form-horizontal">
+              <div class="form-group">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <label for="user_login_name" class="col-md-2 control-label input-margin">Name</label>
+                <div class="col-md-9 col-md-offset-1 input-margin">
+                  <input name="user_login_name" type="text" class="form-control" placeholder="Enter username" required value="<% if (typeof user == 'object' && user){%><%=user.name%><%}%>">
+                </div>
+                <label for="user_login_password" class="col-md-2 control-label input-margin">Password</label>
+                <div class="col-md-9 col-md-offset-1 input-margin">
+                  <input name="user_login_password" type="password" class="form-control" placeholder="Enter password" value="" required>
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" value="Login" class="btn btn-style">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 panel no-padding no-border panel-style">
+          <div class="panel-heading form-top-part">
+            <h1>Sign  up form</h1>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </div>
+          <div class="panel-body">
+            <form action="/home/register" method="post" id="user-signup" class="form-horizontal">
+              <div class="form-group">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <label for="user_signup_name" class="col-md-2 control-label input-margin">Name</label>
+                <div class="col-md-9 col-md-offset-1 input-margin">
+                  <input name="user_signup_name" type="text" class="form-control" placeholder="Enter username" required   pattern="[\S]{3,32}" title='Name must have at least 3 characters with no white spaces' value="<% if (typeof tryagain == 'object' && tryagain){%><%=tryagain.name%><%}%>">
+                </div>
+                <label for="user_signup_password_first" class="col-md-2 control-label input-margin">Password</label>
+                <div class="col-md-9 col-md-offset-1 input-margin">
+                  <input name="user_signup_password_first" type="password" class="form-control" placeholder="Enter password" required pattern="\S{6,32}" title='Passwords must have at least 6 characters and no white spaces'>
+                </div>
+                <label for="user_signup_password_second" class="col-md-2 control-label input-margin">Password</label>
+                <div class="col-md-9 col-md-offset-1 input-margin">
+                  <input name="user_signup_password_second" type="password" class="form-control" placeholder="Enter password again" required pattern="\S{6,32}" title='Passwords must have at least 6 characters and no white spaces'>
+                </div>
+                <label for="user_signup_email" class="col-md-2 control-label input-margin">Email</label>
+                <div class="col-md-9 col-md-offset-1 input-margin">
+                  <input name="user_signup_email" type="email" class="form-control" placeholder="Enter email" required title='Invalid email adress' value="<% if (typeof tryagain == 'object' && tryagain){%><%=tryagain.email%><%}%>">
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" value="Sign up" class="btn btn-style">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row"></div>
+    </div>
+    <script src="/public/js/validate.js"></script>
+    <script src="/public/js/functions.js"></script>
+  </body>
+</html>

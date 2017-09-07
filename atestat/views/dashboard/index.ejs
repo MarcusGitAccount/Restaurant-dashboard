@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="About" content="Login/Sign up forms">
+  <meta name="viewport" content="width=device-width" initial-scale="1.0">
+  <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu" rel="stylesheet">
+  <title><%= model.title %></title>
+</head>
+<body>
+  <% include ../partials/confirm_modal.ejs %>
+  <% include ../partials/navbar.ejs %>
+
+  <div class="container">
+    <div class=""> 
+      <div class="panel panel-default no-border" style="background: rgba(38, 50, 56, 0.5);">
+        <div class="panel-heading grey">
+          <h3 class="panel-title"><i class="fa fa-area-chart" aria-hidden="true">&nbspSite overview</i></h3>
+        </div>
+        <div class="panel-body row panel-body-style">
+          <div class=" col-md-3 col-sm-6 col-xs-6">
+            <a href="/dashboard/employees" target="_blank" class="anchor-white">Employees</a>
+            <span class="badge info-badge" data-table="employees">3</span>
+          </div>
+          <div class=" col-md-3 col-sm-6 col-xs-6">
+            <a href="/dashboard/orders" target="_blank" class="anchor-white">Deliveries</a>
+            <span class="badge info-badge" data-table="orders">5</span>
+          </div>
+          <div class=" col-md-3 col-sm-6 col-xs-6">
+            <a href="/dashboard/menu" target="_blank" class="anchor-white">Menu items</a>
+            <span class="badge info-badge" data-table="menu">5</span>
+          </div>
+          <div class=" col-md-3 col-sm-6 col-xs-6">
+            <a href="/dashboard/ingredients" target="_blank" class="anchor-white">Ingredients</a>
+            <span class="badge info-badge" data-table="ingredients">5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/public/js/functions.js"></script>
+  <script src="/public/jquery/dist/jquery.min.js"></script>
+</body>
+</html>

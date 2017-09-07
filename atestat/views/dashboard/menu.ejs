@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="<%= model.title %>" content="Login/Sign up forms">
+  <meta name="viewport" content="width=device-width" initial-scale="1.0">
+  <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu" rel="stylesheet">
+  <title><%= model.title %></title>
+</head>
+<body>
+  <% include ../partials/navbar.ejs %>
+  <% include ../partials/confirm_modal.ejs %>
+  
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <% include ../partials/left_navigation.ejs %>
+      </div>
+      <div class="col-md-9">
+        <div class="">
+          <div class="well">
+            <form id="form-add-menu-item" enctype="multipart/form-data" name="menu-item">
+              <div class="form-inline row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <input id="ingredient-name" name="name" class="form-control control" type="text" placeholder="Enter name">
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                  <label for="price" class="control-label hide-label">Price in RON: </label>
+                  <div class="form-group item-inline">
+                    <div class="custom-number-input ingredient" id="price">
+                      <span data-step="1" data-increment="-1"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                      <input class="custom-number-input-textbox price-textbox" type="text" value="5" data-max="1000" data-min="0" readonly>
+                      <span data-step="1" data-increment="1"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <label for="" class="col-md-4 col-sm-6 col-xs-6"><span class="hide-label">Quantity: </span><span id="quantity">0</span> grams</label>
+              </div><br>
+              <div class="from-inline row" id="ingredients">
+                <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 item-inline ingredient-input-group">
+                  <input type="text" class="form-control item-name-box control ingredient-name" placeholder="Enter name and quantity" id="first">
+                  <div class="custom-number-input ingredient" id="first-input">
+                    <span data-step="1" data-increment="-1"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <input class="custom-number-input-textbox ingredient-quantity" type="text" value="1" data-max="500" data-min="0" readonly>
+                    <span data-step="1" data-increment="1"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                  </div>
+                  <button type="button" class="btn btn-grey add-waypoint"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                  <button type="button" class="btn btn-grey delete-waypoint"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div id="file-input-div">
+                  <label for="image" class="hide-label col-md-3 col-sm-3">Choose images</label>
+                  <input type="file" accept="image/*" name="image" class="col-md-3 col-sm-6 col-xs-6" id="img-input">
+                </div>
+                
+                <div class="btn-submit-div col-md-3 col-sm-3 col-xs-6">
+                  <input class=" btn btn-grey" style="margin-bottom: 2vh;" type="button" value="Add menu item" class="btn btn-grey" id="submit-menu">
+                </div>
+              </div>
+              <div class="preview row"></div>
+            </form>
+          </div>
+        </div>
+        
+        <div class="menu-items-container">
+          <!--div class="menu-item well">
+            <div class="row">
+              <div class="col md-12 ingredient-title">
+                <span class="menu-item-title">Salad</span>
+              </div>
+            </div>
+            <div class="images row">
+              <img src="/public/upload/bacon.jpg" alt="gallery image" class="img-responsive col-xl-2 col-md-3 col-sm-4 col-xs-6">
+              <img src="/public/upload/peppers.jpg" alt="gallery image" class="img-responsive col-xl-2 col-md-3 col-sm-4 col-xs-6">
+            </div>
+            <div class="menu-info row">
+              <div class="ingredients-list col-md-6 col-sm-6 col-xs-12">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a href="/dashboard/ingredients" target="_blank">Employees</a>
+                    <span class="badge info">3</span>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="/dashboard/ingredients" target="_blank">Current deliveries</a>
+                    <span class="badge info">5</span>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="/dashboard/ingredients" target="_blank">Menu items</a>
+                    <span class="badge info">5</span>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="/dashboard/ingredients" target="_blank">Ingredients</a>
+                    <span class="badge info">5</span>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="/dashboard/ingredients" target="_blank">Ingredients</a>
+                    <span class="badge info">5</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Quantity
+                    <span class="badge info">350 grams</span>
+                  </li>
+                  <li class="list-group-item">
+                    Price
+                    <span class="badge info">120 RON</span>
+                  </li>
+                </ul>
+                <button type="button" class="btn btn-grey delete-menu-item">Delete menu item</button>
+              </div>
+            </div>
+          </div-->
+        </div>
+
+      </div> 
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/public/js/functions.js"></script>
+  <script src="/public/js/menu.js"></script>
+  
+</body>
+</html>

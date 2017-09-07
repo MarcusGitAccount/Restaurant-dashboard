@@ -1,0 +1,28 @@
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/dashboard">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+        Dashboard
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="/dashboard/logout">Home</a></li>
+        <li><a href="/home/about" target="_blank">About</a></li>
+        <li><a href="/home/contact" target="_blank">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="">Hello, <span id="admin-name" ><%= user.name %></span></a></li>
+        <li><a class="btn-ok" data-href="/dashboard/logout" data-toggle="modal" data-target="#cofirm-yes-no">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="<%= model.title %>" content="Login/Sign up forms">
+  <meta name="viewport" content="width=device-width" initial-scale="1.0">
+  <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+  <link rel="stylesheet" href="/public/font-awesome/css/font-awesome.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu" rel="stylesheet">
+  <title><%= model.title %></title>
+</head>
+<body>
+  <% include ../partials/navbar.ejs %>
+  <% include ../partials/confirm_modal.ejs %>
+
+  <div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="add-employee" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adding employee form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="form-add-employee" name="employee">
+            <div class="form-group">
+              <label for="first_name"><b>First name</b></label>
+              <input name="first_name" type="text" class="form-control" placeholder="Enter first name" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="last_name"><b>Last name</b></label>
+              <input name="last_name" type="text" class="form-control" placeholder="Enter last name" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone_number"><b>Phone number</b></label>
+              <input name="phone_number" type="text" class="form-control" placeholder="Enter phone number" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="salary"><b>Salary</b></label>
+              <input name="salary" type="text" class="form-control" placeholder="Enter salary" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="job_name"><b>Job</b></label>
+              <input name="job_name" type="text" class="form-control" placeholder="Enter job name" required>
+              <span class="error-message"></span>
+            </div>
+            <div class="form-group">
+              <label for="email"><b>Email</b></label>
+              <input name="email" type="email" class="form-control" placeholder="Enter email" required>
+              <span class="error-message"></span>
+            </div>
+          </form>
+        </div>
+        <div class="form-group">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismss</button>
+          <button type="button" class="btn btn-grey btn-add">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <% include ../partials/left_navigation.ejs %>
+      </div>
+      <div class="col-md-9">
+        <div class="col-md-12">
+          <div class="panel panel-default no-border table-scroll">
+            <div class="panel-heading grey">Administrators</div>
+            <table class="table administrators responsive-table">
+              <tr>
+                <th>
+                  <span class="sorting-arrows">No.
+                   <i onclick="arrowSortDesc(this)" data-col="id" data-table="administrators" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)" data-col="id" data-table="administrators"  class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Username
+                    <i data-col="name" onclick="arrowSortDesc(this)" data-table="administrators"  class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)" data-col="name" data-table="administrators"  class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Email
+                    <i data-col="email" onclick="arrowSortDesc(this)" data-table="administrators"  class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i data-col="email" onclick="arrowSortAsc(this)" data-table="administrators"  class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Registration date
+                    <i onclick="arrowSortDesc(this)" data-col="registration_date" data-table="administrators"  class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i data-col="registration_date" onclick="arrowSortAsc(this)" data-table="administrators"  class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel panel-default no-border table-scroll">
+            <div class="panel-heading grey">Employees</div>
+            <div>
+            <table class="table employees responsive-table">
+              <tr>
+                <th>
+                  <span class="sorting-arrows">No.
+                    <i onclick="arrowSortDesc(this)"  data-col="id" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="id" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">First name
+                    <i onclick="arrowSortDesc(this)"  data-col="first_name" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="first_name" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Last name
+                    <i onclick="arrowSortDesc(this)"  data-col="last_name" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="last_name" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Phone number
+                    <i onclick="arrowSortDesc(this)"  data-col="phone_number" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="phone_number" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th><!--
+                <th>
+                  <span class="sorting-arrows">Hire date
+                    <i onclick="arrowSortDesc(this)"  data-col="hire_date" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="hire_date" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>-->
+                </th>
+                <th>
+                  <span class="sorting-arrows">Salary
+                    <i onclick="arrowSortDesc(this)"  data-col="salary" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="salary" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Job
+                    <i onclick="arrowSortDesc(this)"  data-col="job_name" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="job_name" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+                <th>
+                  <span class="sorting-arrows">Email
+                    <i onclick="arrowSortDesc(this)"  data-col="email" data-table="employees" class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <i onclick="arrowSortAsc(this)"  data-col="email" data-table="employees" class="fa fa-arrow-up" aria-hidden="true"></i>
+                  </span>
+                </th>
+              </tr>
+            </table>
+            <div class="alert alert-danger wrong-input hidden text-center">
+            </div>
+            <div class="table-logic-buttons">
+              <button data-toggle="modal" data-target="#add-modal" class="btn btn-grey btn-add-employee">Add employee&nbsp&nbsp<i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+              <button disabled="disabled" class="btn btn-grey btn-save-changes">Save changes</button>
+              <button disabled="disabled" class="btn btn-grey btn-undo-changes">Undo changes&nbsp&nbsp<i class="fa fa-undo" aria-hidden="true"></i></button>
+              <button disabled="disabled" class="btn btn-grey btn-delete">Delete selected&nbsp&nbsp<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="width: 100% !important;">
+          <div class="panel panel-default no-border no-border">
+            <div class="panel-heading grey">Changes made to Employees table</div>
+            <div class="panel-body">
+              <ul class="group-list list-content">
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <nav aria-label="Changes navigation">
+                <ul class="pager">
+                  <li id="prev"><a data-min="1" data-increment="-1" title="Previous page">Previous</a></li>
+                  <li id="next"><a data-max="" data-increment="1" title="Next page">Next</a></li>
+                </ul>
+              </nav>
+              <div class="page-count">
+                <p>Current page: <span class="list-span" id="current-page">1</span></p>
+                <p>Pages available: <span class="list-span" id="pages-number"></span></p>
+              </div>
+            </div>
+        </div>
+      </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/public/js/functions.js"></script>
+  <script src="/public/js/employees.js"></script>
+</body>
+</html>

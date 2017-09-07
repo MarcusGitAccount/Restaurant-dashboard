@@ -1,0 +1,130 @@
+
+https://www.youtube.com/watch?v=QjICgmk31js&ab_channel=DerekBanas
+
+http://www.w3resource.com/node.js/nodejs-sqlite.php
+
+https://github.com/mapbox/node-sqlite3/wiki/API
+
+http://stackoverflow.com/questions/16073603/how-do-i-update-each-dependency-in-package-json-to-the-latest-version
+
+db.run("BEGIN TRANSACTION");
+
+http://www.codingdefined.com/2016/03/how-to-use-sqlite-database-in-nodejs.html
+
+https://scotch.io/tag/javascript/drink-number/10
+https://scotch.io/tutorials/javascript-promises-for-dummies
+https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4
+https://code.tutsplus.com/tutorials/build-a-complete-mvc-website-with-expressjs--net-34168
+https://www.youtube.com/watch?v=9hDKfBKuXjI&ab_channel=TraversyMedia // web design in 2017
+
+Login Page
+http://azmind.com/demo/bootstrap-login-register-forms/form-2/index.html
+
+https://www.youtube.com/watch?v=QseHOX-5nJQ&ab_channel=DevelopMentor1
+nodemon
+view engine
+index.ejs
+http://expressjs.com/
+bower
+passportjs.org (for authentification)
+ejs layouts
+routes folders
+
+
+to do:
+  - form validation
+  - https://www.youtube.com/watch?v=yvviEA1pOXw&ab_channel=Stormpath
+
+
+CREATE TABLE bookmarks(
+    users_id INTEGER,
+    lessoninfo_id INTEGER,
+    UNIQUE(users_id, lessoninfo_id)
+);
+
+INSERT OR IGNORE INTO bookmarks(users_id, lessoninfo_id) VALUES(123, 456)
+
+session and cookies (yay)
+
+salted hash: http://stackoverflow.com/questions/17201450/salt-and-hash-password-in-nodejs-w-crypto
+
+try - catch blocks when dealing with db
+
+ga=GA1.1.2136903268.1479236707; session=Btdfsqv8IJ3-XdLekoAwow.u8eZSD81xdEmmmwNL7KUIeg0AENMcAETI3z8i_6-jYNnnIERE1e8T9btaAJLSZT2ybheKO1AOW-EGmhbPt8a5HuoRSbaxTXPHyjyva-k6PE.1484728106189.1800000.qWxLopYJjp3VZ23-3e49flXnE9E9KN0hzKaFIPG0dkc
+
+John
+parola123
+Marcus
+123abc
+Smith
+abc123
+George
+parola
+Rose
+123456
+
+{ 
+  creare ingredient
+  creare ingredient (creare custom pizza, client)
+  comenzi curente
+  crestere aproviozanare lunara
+  dashboard angajati
+  dashboard useri
+  orderds state (timer)
+}
+
+business: Pizzerie
+
+ingrediente
+pizza
+angajati
+comenzi
+query-uri recente (pt dashboard user - administratori - )
+angajati
+
+let strDate = '2017-01-18 17:39:17'
+undefined
+strDate.replace(' ', 'T')
+"2017-01-18T17:39:17"
+strDate.concat('Z')
+"2017-01-18 17:39:17Z"
+new Date(strDate)
+
+Math.round((new Date() - new Date(strDate)) / (24 * 60 * 60 * 1000)) days passed
+
+
+
+CREATE TABLE ADMINISTRATORS (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE NOT NULL, password TEXT NOT NULL, salt TEXT UNIQUE NOT NULL, email TEXT UNIQUE NOT NULL, registration_date DATETIME DEFAULT CURRENT_TIMESTAMP);
+INSERT INTO "ADMINISTRATORS" VALUES(1,'John','some hash','some salt','john@yahoo.com','2017-01-15 16:29:29');
+
+Build these tables:
+- menu (id, name, ingredients, quantity, price) [DONE]
+- ingredients (id, name, quantity, price) [DONE]
+- employees (id, first name, last name, email, hire date, salary, job_name) [DONE]
+- orders (id, location, starting time, time_taken)
+- adminitrators [DONE]
+
+create table ORDERS(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, location TEXT NOT NULL, starting_time DATETIME DEFAULT CURRENT_TIMESTAMP, time_taken REAL, items TEXT, price REAL);
+
+Pages:
+- employees (private) (change salary, delete)
+- users (private)
+- dashboard (wells with info: numere pizza, ingredient, useri/ , administratori) (private)
+- menu (create, delete, starting price, starting weight) (public)
+- orders (timer daca nu e gata, button pentru eliminare sau terminare)  (public)
+- ingredients (private)
+
+Tables features: 
+- sorting (front end)
+- changing valus (front end, backend)
+- add / delete (front end, backend)
+
+Pages working order (tables also + api): 
+- /ingredients [DONE]
+- /menu
+- /orders
+- /users
+- /employees
+- /dashboard [DONE add more presentation stuff]
+
+create table history(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, table TEXT NOT NULL, date DATETIME DEFAULT CURRENT_TIMESTAMP);
